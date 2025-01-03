@@ -2,18 +2,18 @@
   "version": 2,
   "builds": [
     {
-      "src": "src/main.ts",
+      "src": "./build/main.js",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["src/**"]
+        "includeFiles": ["build/**"]
       }
     }
   ],
-  "buildCommand": "npm run build",
+  "buildCommand": "npm run start",
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "src/",
+      "dest": "./build/main.js",
       "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
       "headers": {
         "Access-Control-Allow-Credentials": "true",
