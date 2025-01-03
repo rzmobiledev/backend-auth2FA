@@ -4,10 +4,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "build": "rimraf api && tsc && cp package.json /api",
-    "start": "node api/index.js",
+    "build": "rimraf api && tsc",
+    "start": "tsx watch src/index.ts",
     "ts.check": "tsc --project tsconfig.json",
-    "add-build": "git add build"
+    "add-build": "git add api"
   },
   "pre-commit": [
     "ts.check",
