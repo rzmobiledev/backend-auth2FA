@@ -7,7 +7,6 @@
       "config": { "includeFiles": ["api/**"] }
     }
   ],
-  "buildCommand": "npm run build",
   "routes": [
     {
       "src": "/(.*)",
