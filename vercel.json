@@ -9,7 +9,6 @@
       }
     }
   ],
-  "buildCommand": "npm run start",
   "routes": [
     {
       "src": "/(.*)",
