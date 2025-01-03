@@ -6,11 +6,6 @@
       "use": "@vercel/node"
     }
   ],
-  "functions": {
-    "src/*.ts": {
-      "maxDuration": 30
-    }
-  },
   "buildCommand": "npm run build",
   "routes": [
     {
