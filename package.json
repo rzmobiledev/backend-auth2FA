@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch ./src/main.ts",
-    "build": "rimraf build && tsc && cp ./package.json ./build",
+    "dev": "tsx watch src/index.ts",
+    "build": "rimraf build && tsc",
     "start": "node build/main.js",
     "ts.check": "tsc --project tsconfig.json",
     "add-build": "git add build"

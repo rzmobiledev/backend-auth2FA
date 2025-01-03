@@ -1,9 +1,9 @@
 {
   "name": "rz-2fa-backend",
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node main.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
