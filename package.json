@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "rimraf api && tsc",
-    "start": "tsx watch src/index.ts",
+    "start": "node api/index.js",
     "ts.check": "tsc --project tsconfig.json",
     "add-build": "git add api"
   },
