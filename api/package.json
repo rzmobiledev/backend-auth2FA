@@ -3,18 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "build": "rimraf api && tsc",
-    "start": "node api/index.js",
-    "ts.check": "tsc --project tsconfig.json",
-    "add-build": "git add api"
+    "start": "node api/index.js"
   },
-  "pre-commit": [
-    "ts.check",
-    "build",
-    "add-build",
-    "start"
-  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
