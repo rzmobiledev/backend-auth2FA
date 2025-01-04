@@ -27,7 +27,7 @@ app.use(passport.initialize())
 
 app.get('/', asyncHandler(async(req: Request, res: Response): Promise<void> => {
     res.status(HTTP_STATUS.OK).json({
-        message: `Welcome to MERN AUTH. Port: ${config.PORT} and db: ${config.MONGO_URI}`
+        message: `Welcome to MERN AUTH, Port: ${config.PORT} and db: ${config.MONGO_URI}`
     });
 }))
 
