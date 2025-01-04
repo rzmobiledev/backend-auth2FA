@@ -45,6 +45,6 @@ app.use(`${BASE_PATH}/session`, session_routes_1.default);
 app.use(`${BASE_PATH}/mfa`, mfa_routes_1.default);
 app.use(errorHandler_1.errorHandler);
 app.listen(app_config_1.config.PORT, () => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(`Server is running and listening on port ${app_config_1.config.PORT}`);
     yield (0, db_1.default)();
+    console.log(`Server is running and listening on port ${app_config_1.config.PORT}`);
 }));

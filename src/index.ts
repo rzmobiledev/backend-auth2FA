@@ -38,6 +38,6 @@ app.use(`${BASE_PATH}/mfa`, mfaRoutes)
 app.use(errorHandler)
 
 app.listen(config.PORT, async() => {
-    console.log(`Server is running and listening on port ${config.PORT}`)
     await connectDatabase()
+    console.log(`Server is running and listening on port ${config.PORT}`)
 })
