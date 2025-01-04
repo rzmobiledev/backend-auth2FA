@@ -37,7 +37,7 @@ app.use((0, cookie_parser_1.default)());
 app.use(passport_1.default.initialize());
 app.get('/', (0, asyncHandler_1.asyncHandler)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.status(http_config_1.HTTP_STATUS.OK).json({
-        message: `Welcome to MERN AUTH. Port: ${app_config_1.config.PORT} and db: ${app_config_1.config.MONGO_URI}`
+        message: `Welcome to MERN AUTH, Port: ${app_config_1.config.PORT} and db: ${app_config_1.config.MONGO_URI}`
     });
 })));
 app.use(`${BASE_PATH}/auth`, auth_routes_1.default);
