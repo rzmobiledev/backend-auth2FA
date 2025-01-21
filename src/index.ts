@@ -24,6 +24,8 @@ app.set('trust proxy', 1)
 app.use(cors({
     origin: config.CORS_ORIGIN,
     credentials: true,
+    preflightContinue: false,
+    optionsSuccessStatus: 200
 }))
 
 app.get('/', asyncHandler(async(req: Request, res: Response): Promise<void> => {
