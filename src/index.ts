@@ -25,9 +25,7 @@ app.use(cors({
     origin: config.CORS_ORIGIN,
     credentials: true,
     allowedHeaders: [
-      'access-control-allow-origin',
-      'accessToken',
-      'refreshToken'
+      'Access-Control-Allow-Headers'
     ]
 }))
 
