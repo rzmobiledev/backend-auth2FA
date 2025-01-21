@@ -10,7 +10,7 @@ export type JWTType = {
 export type AppConfig = {
     NODE_ENV: string,
     APP_ORIGIN: string | string[],
-    CORS_ORIGIN: string | string[],
+    CORS_ORIGIN: string[],
     FRONTEND_ORIGIN: string,
     PORT: string,
     BASE_PATH: string,
@@ -22,7 +22,7 @@ export type AppConfig = {
 
 const origin = getEnv("APP_ORIGIN", "localhost")
 const NODE_ENV = getEnv("NODE_ENV", "development")
-const APP_ORIGIN = origin.split(',')
+const APP_ORIGIN = origin.split(',').map((origin: string): string => origin)
 
 const appConfig: () => AppConfig = (): AppConfig => ({
     NODE_ENV: NODE_ENV,
