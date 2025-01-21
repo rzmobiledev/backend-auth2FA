@@ -15,17 +15,17 @@ import mfaRoutes from "./modules/mfa/mfa.routes";
 const app: Express = express()
 const BASE_PATH: string = config.BASE_PATH
 
+app.use(cookieParser())
+app.use(passport.initialize())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.set('trust proxy', 1)
+
 app.use(cors({
     origin: config.CORS_ORIGIN,
     credentials: true,
 
 }))
-
-app.use(cookieParser())
-app.use(passport.initialize())
 
 app.get('/', asyncHandler(async(req: Request, res: Response): Promise<void> => {
     res.status(HTTP_STATUS.OK).json({
