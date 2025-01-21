@@ -24,9 +24,6 @@ app.set('trust proxy', 1)
 app.use(cors({
     origin: config.CORS_ORIGIN,
     credentials: true,
-    allowedHeaders: [
-      'Access-Control-Allow-Headers'
-    ]
 }))
 
 app.get('/', asyncHandler(async(req: Request, res: Response): Promise<void> => {
