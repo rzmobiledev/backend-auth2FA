@@ -6,8 +6,8 @@ export const REFRESH_PATH = `${config.BASE_PATH}/auth/refresh`;
 
 const defaultCookie: CookieOptions = {
     httpOnly: true,
-    secure: config.NODE_ENV === "production",
-    sameSite: "none"
+    // secure: config.NODE_ENV === "production",
+    // sameSite: config.NODE_ENV === "production" ? "strict" : "lax"
 }
 
 export const getRefreshTokenCookieOptions = (): CookieOptions => {
