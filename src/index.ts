@@ -17,9 +17,11 @@ const BASE_PATH: string = config.BASE_PATH
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.set('trust proxy', 1)
 app.use(cors({
     origin: config.CORS_ORIGIN,
-    credentials: true
+    credentials: true,
+
 }))
 
 app.use(cookieParser())
