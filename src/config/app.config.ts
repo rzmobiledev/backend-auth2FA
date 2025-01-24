@@ -17,12 +17,13 @@ export type AppConfig = {
     MONGO_URI: string,
     JWT: JWTType,
     MAILER_SENDER: string,
-    RESEND_API_KEY: string
+    RESEND_API_KEY: string,
+    DOMAIN: string
 }
 
 const origin = getEnv("APP_ORIGIN", "localhost")
 const NODE_ENV = getEnv("NODE_ENV", "development")
-const APP_ORIGIN = origin.split(',').map((origin: string): string => origin)
+const APP_ORIGIN: string[] = origin.split(',').map((origin: string): string => origin.trim())
 
 const appConfig: () => AppConfig = (): AppConfig => ({
     NODE_ENV: NODE_ENV,
@@ -39,7 +40,8 @@ const appConfig: () => AppConfig = (): AppConfig => ({
         REFRESH_EXPIRES_IN: getEnv("JWT_REFRESH_EXPIRES_IN", "1h")
     },
     MAILER_SENDER: getEnv("MAILER_SENDER"),
-    RESEND_API_KEY: getEnv("RESEND_API_KEY")
+    RESEND_API_KEY: getEnv("RESEND_API_KEY"),
+    DOMAIN: getEnv("DOMAIN","localhost")
 })
 export const config:AppConfig = appConfig()
 export type appConfigType = ReturnType<typeof appConfig>
