@@ -7,7 +7,7 @@ export const REFRESH_PATH = `${config.BASE_PATH}/auth/refresh`;
 const defaultCookie: CookieOptions = {
     httpOnly: true,
     secure: true,
-    sameSite: "none"
+    sameSite: "lax"
 }
 
 export const getRefreshTokenCookieOptions = (): CookieOptions => {
@@ -15,7 +15,6 @@ export const getRefreshTokenCookieOptions = (): CookieOptions => {
     const expires = calculateExpirationDate(expiresIn)
     return {
         ...defaultCookie,
-        sameSite: 'none',
         expires,
         path: REFRESH_PATH
     }
