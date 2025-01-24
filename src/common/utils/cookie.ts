@@ -7,7 +7,7 @@ export const REFRESH_PATH = `${config.BASE_PATH}/auth/refresh`;
 const defaultCookie: CookieOptions = {
     httpOnly: true,
     secure: true,
-    sameSite: "lax",
+    sameSite: true,
     domain: config.DOMAIN
 }
 

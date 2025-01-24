@@ -19,12 +19,13 @@ app.use(cookieParser())
 app.use(passport.initialize())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.set('trust proxy', 1)
+app.set('trust proxy', 2)
 
 app.use(cors({
     origin: config.CORS_ORIGIN,
     credentials: true,
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE"
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    exposedHeaders: ['Authorization']
 }))
 
 app.get('/', asyncHandler(async(req: Request, res: Response): Promise<void> => {
