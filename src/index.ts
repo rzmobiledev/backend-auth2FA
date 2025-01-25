@@ -33,7 +33,7 @@ app.use(express.urlencoded({ extended: true }))
   
 app.set('trust proxy', 1)
 app.use(cors({
-    origin: true,
+    origin: config.CORS_ORIGIN,
     credentials: true
 }))
 
