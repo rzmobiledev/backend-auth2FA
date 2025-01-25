@@ -9,7 +9,7 @@ const defaultCookie: CookieOptions = {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: process.env.NODE_ENV === "production" ? 'none' : 'lax',
-    domain: "rzmobiledev.site"
+    domain: config.DOMAIN
 }
 
 export const getRefreshTokenCookieOptions = (): CookieOptions => {
