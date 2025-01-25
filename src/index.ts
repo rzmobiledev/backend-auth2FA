@@ -1,6 +1,7 @@
 import "dotenv/config"
 import express, {Express, Request, Response, NextFunction} from "express"
 import cors from "cors"
+import session from "express-session"
 import cookieParser from "cookie-parser"
 import {config} from "./config/app.config";
 import connectDatabase from "./database/db";
@@ -19,13 +20,24 @@ app.use(cookieParser())
 app.use(passport.initialize())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.set('trust proxy', 2)
+app.set('trust proxy', 1)
 
 app.use(cors({
     origin: config.CORS_ORIGIN,
     credentials: true,
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    exposedHeaders: ['Authorization']
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE"
+}))
+
+app.use(session({
+    name: "auth2fa",
+    secret: config.JWT.SECRET,
+    unset: "destroy",
+    cookie: {
+        sameSite: "none",
+        secure: true,
+        httpOnly: true,
+        maxAge: 8600000
+    }
 }))
 
 app.get('/', asyncHandler(async(req: Request, res: Response): Promise<void> => {

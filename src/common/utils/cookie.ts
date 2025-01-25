@@ -2,13 +2,15 @@ import {Response, CookieOptions} from "express"
 import {config} from "../../config/app.config";
 import {calculateExpirationDate} from "./date-time";
 
+
 export const REFRESH_PATH = `${config.BASE_PATH}/auth/refresh`;
 
 const defaultCookie: CookieOptions = {
     httpOnly: true,
-    secure: true,
-    sameSite: true,
-    domain: config.DOMAIN
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "none",
+    domain: config.DOMAIN,
+    maxAge: 8600000
 }
 
 export const getRefreshTokenCookieOptions = (): CookieOptions => {
