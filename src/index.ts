@@ -1,7 +1,7 @@
 import "dotenv/config"
+import path from "path"
 import express, {Express, Request, Response, NextFunction} from "express"
 import cors from "cors"
-import session from "express-session"
 import cookieParser from "cookie-parser"
 import {config} from "./config/app.config";
 import connectDatabase from "./database/db";
@@ -20,8 +20,18 @@ app.use(cookieParser())
 app.use(passport.initialize())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.set('trust proxy', 1)
 
+ app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+  });
+  
+app.set('trust proxy', 1)
 app.use(cors({
     origin: config.CORS_ORIGIN,
     credentials: true
