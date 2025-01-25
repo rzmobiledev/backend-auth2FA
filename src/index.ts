@@ -24,20 +24,7 @@ app.set('trust proxy', 1)
 
 app.use(cors({
     origin: config.CORS_ORIGIN,
-    credentials: true,
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE"
-}))
-
-app.use(session({
-    name: "auth2fa",
-    secret: config.JWT.SECRET,
-    unset: "destroy",
-    cookie: {
-        sameSite: "none",
-        secure: true,
-        httpOnly: true,
-        maxAge: 8600000
-    }
+    credentials: true
 }))
 
 app.get('/', asyncHandler(async(req: Request, res: Response): Promise<void> => {
