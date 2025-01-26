@@ -41,9 +41,14 @@ export const setAuthenticationCookies = (
     .cookie("refreshToken", refreshToken, getRefreshTokenCookieOptions())
 
 export const clearAuthenticationCookies = (res: Response): Response => {
-    return res.clearCookie("accessToken", {httpOnly: true, secure: true, path: '/'}).clearCookie("refreshToken", {
-        httpOnly: true,
-        secure: true,
+    return res.clearCookie("accessToken", {
+        ...defaultCookie, 
+        expires: new Date(0),
+        path: '/'
+    })
+    .clearCookie("refreshToken", {
+        ...defaultCookie,
+        expires: new Date(0),
         path: REFRESH_PATH
     })
 }
