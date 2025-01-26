@@ -1,5 +1,4 @@
 import "dotenv/config"
-import path from "path"
 import express, {Express, Request, Response, NextFunction} from "express"
 import cors from "cors"
 import cookieParser from "cookie-parser"
@@ -17,20 +16,22 @@ const app: Express = express()
 const BASE_PATH: string = config.BASE_PATH
 
 app.set('trust proxy', 1)
-app.use(cookieParser())
-app.use(passport.initialize())
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
 
- app.use(function (req, res, next) {
+app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
+    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
     res.header(
       "Access-Control-Allow-Headers",
       "Origin, X-Requested-With, Content-Type, Accept"
     );
     next();
   });
+
+app.use(cookieParser())
+app.use(passport.initialize())
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
 app.use(cors({
     origin: config.CORS_ORIGIN,
