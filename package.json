@@ -11,8 +11,7 @@
   "pre-commit": [
     "ts.check",
     "build",
-    "add-build",
-    "start"
+    "add-build"
   ],
   "keywords": [],
   "author": "",
