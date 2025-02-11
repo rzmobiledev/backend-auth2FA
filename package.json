@@ -6,6 +6,7 @@
     "dev": "tsx watch src/index.ts",
     "build": "rimraf api && tsc",
     "start": "node api/index.js",
+    "add-build": "git add api",
     "ts.check": "tsc --project tsconfig.json"
   },
   "pre-commit": [
