@@ -29,8 +29,6 @@ export class AuthController {
         const userAgent = req.headers['user-agent'];
         const body = registerSchema.parse(req.body)
         const { user } = await this.authService.register(body)
-        console.log(body)
-        console.log(user)
         return res.status(HTTP_STATUS.CREATED).json({
             message: "User registered successfully",
             data: user
